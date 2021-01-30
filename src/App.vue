@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header/>
+      <Item/>
     <Footer/>
   </div>
 </template>
@@ -8,12 +9,14 @@
 <script>
 import Header from './components/Header.vue';
 import Footer from './components/Footer.vue';
+import Item from './components/Item.vue';
 
 export default {
   name: 'App',
   components: {
     Header,
-    Footer
+    Footer,
+    Item,
   }
 }
 </script>
