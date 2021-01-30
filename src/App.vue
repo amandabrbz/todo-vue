@@ -2,15 +2,21 @@
   <div id="app">
     <Header />
     <Form @add="addTask" />
-    <ul>
+    
+    <ul aria-labelledby="list-summary">
       <li v-for="item in tasks" v-bind:key="item.id">
         <Item
           v-bind:label="item.label"
           v-bind:done="item.done"
           v-bind:id="item.id"
+          @change="updateTask(item.id)"
+          @delete="deleteTask(item.id)"
         />
       </li>
     </ul>
+
+    <h6 id="list-summary">{{ listSummary }}</h6>
+
     <Footer />
   </div>
 </template>
@@ -42,6 +48,20 @@ export default {
         done: false,
       });
     },
+    updateTask(id) {
+      const updateTask = this.tasks.find((item) => item.id === id);
+      updateTask.done = !updateTask.done;
+    },
+    deleteTask(id) {
+      const itemIndex = this.tasks.findIndex(item => item.id === id);
+      this.tasks.splice(itemIndex, 1);
+    }
+  },
+  computed: {
+    listSummary() {
+      const numberFinishedItems = this.tasks ? this.tasks.filter((item) => item.done).length : null;
+      return `${numberFinishedItems} de ${this.tasks.length} tarefas feitas`;
+    },
   },
 };
 </script>
@@ -62,5 +82,15 @@ li {
   padding: 0;
   margin: 0;
   list-style: none;
+}
+
+ul {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+h6 {
+  text-align: center;
+  color: #44BFE4;
 }
 </style>
