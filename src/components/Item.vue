@@ -4,7 +4,7 @@
       <input
         type="checkbox"
         v-bind:for="id"
-        v-bind:checked="isDone"
+        v-bind:checked="isCheck"
         @change="$emit('change')"
       />
       <label v-bind:for="id">{{ label }}</label>
@@ -20,12 +20,12 @@ export default {
   name: "Item",
   props: {
     label: { required: true, type: String },
-    done: { default: false, type: Boolean },
+    check: { default: false, type: Boolean },
     id: { required: true, type: String },
   },
   data() {
     return {
-      isDone: this.done,
+      isCheck: this.check,
     };
   },
   methods: {
@@ -55,6 +55,9 @@ div > input[type="checkbox"] {
   cursor: pointer;
   margin-right: 20px;
 }
+div > input[type="checkbox"]:checked + label{
+  text-decoration: line-through;
+}
 
 div > label {
   color: #4f7947;
@@ -64,8 +67,13 @@ button {
   background: red;
   color: white;
   border: 1px solid red;
-  width: 20px;
-  height: 20px;
+  width: 25px;
+  height: 25px;
   font-weight:bold;
+  border-radius: 6px;
+}
+
+button:hover {
+  cursor: pointer;
 }
 </style>

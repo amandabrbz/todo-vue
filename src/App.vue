@@ -7,7 +7,7 @@
       <li v-for="item in tasks" v-bind:key="item.id">
         <Item
           v-bind:label="item.label"
-          v-bind:done="item.done"
+          v-bind:check="item.check"
           v-bind:id="item.id"
           @change="updateTask(item.id)"
           @delete="deleteTask(item.id)"
@@ -15,7 +15,7 @@
       </li>
     </ul>
 
-    <h6 id="list-summary">{{ listSummary }}</h6>
+    <h6 id="counter">{{ counter }}</h6>
 
     <Footer />
   </div>
@@ -45,12 +45,12 @@ export default {
       this.tasks.push({
         id: `id-${Math.floor(Math.random() * 1000)}`,
         label: task,
-        done: false,
+        check: false,
       });
     },
     updateTask(id) {
       const updateTask = this.tasks.find((item) => item.id === id);
-      updateTask.done = !updateTask.done;
+      updateTask.check = !updateTask.check;
     },
     deleteTask(id) {
       const itemIndex = this.tasks.findIndex(item => item.id === id);
@@ -58,9 +58,9 @@ export default {
     }
   },
   computed: {
-    listSummary() {
-      const numberFinishedItems = this.tasks ? this.tasks.filter((item) => item.done).length : null;
-      return `${numberFinishedItems} de ${this.tasks.length} tarefas feitas`;
+    counter() {
+      const terminados = this.tasks ? this.tasks.filter((item) => item.check).length : null;
+      return `${terminados} de ${this.tasks.length} tarefas feitas`;
     },
   },
 };
