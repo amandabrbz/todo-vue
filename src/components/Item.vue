@@ -11,11 +11,11 @@ export default {
   props: {
     label: { required: true, type: String },
     done: { default: false, type: Boolean },
+    id: {required: true, type: String}
   },
   data() {
     return {
       isDone: this.done,
-      id: `id-${Math.floor(Math.random() * 1000)}`,
     };
   }
 };
