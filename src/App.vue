@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <Header/>
-      <Item/>
+      <Item label="fazer app de todo" v-bind:done="false"/>
     <Footer/>
   </div>
 </template>
