@@ -1,10 +1,14 @@
 <template>
   <div id="app">
     <Header />
-    <Form/>
+    <Form @add="addTask" />
     <ul>
-      <li v-for="item in ToDoItems" v-bind:key="item.id">
-        <Item v-bind:label="item.label" v-bind:done="item.done" v-bind:id="item.id" />
+      <li v-for="item in tasks" v-bind:key="item.id">
+        <Item
+          v-bind:label="item.label"
+          v-bind:done="item.done"
+          v-bind:id="item.id"
+        />
       </li>
     </ul>
     <Footer />
@@ -27,14 +31,17 @@ export default {
   },
   data() {
     return {
-      ToDoItems: [
-        {
-          id: `id-${Math.floor(Math.random() * 1000)}`,
-          label: "do app",
-          done: false,
-        },
-      ],
+      tasks: [],
     };
+  },
+  methods: {
+    addTask(task) {
+      this.tasks.push({
+        id: `id-${Math.floor(Math.random() * 1000)}`,
+        label: task,
+        done: false,
+      });
+    },
   },
 };
 </script>
@@ -50,9 +57,10 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-ul, li {
+ul,
+li {
   padding: 0;
   margin: 0;
-  list-style:none;
+  list-style: none;
 }
 </style>

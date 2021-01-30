@@ -1,5 +1,5 @@
 <template>
-  <form @submit="onSubmit">
+  <form @submit="submit">
     <label for="task">
       quais são as tarefas de hoje?
     </label>
@@ -25,9 +25,13 @@ export default {
     };
   },
   methods: {
-    onSubmit(e) {
+    submit(e) {
       e.preventDefault();
-      alert("task: ", this.task);
+
+      if (this.task === "") return
+
+      this.$emit("add", this.task);
+      this.task = "";
     },
   },
 };
