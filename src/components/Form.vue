@@ -1,9 +1,15 @@
 <template>
-  <form>
+  <form @submit="onSubmit">
     <label for="task">
       quais são as tarefas de hoje?
     </label>
-    <input type="text" id="task" name="task" autocomplete="off" />
+    <input
+      type="text"
+      id="task"
+      name="task"
+      autocomplete="off"
+      v-model="task"
+    />
     <button type="submit">
       gravar
     </button>
@@ -13,6 +19,17 @@
 <script>
 export default {
   name: "Form",
+  data() {
+    return {
+      task: "",
+    };
+  },
+  methods: {
+    onSubmit(e) {
+      e.preventDefault();
+      alert("task: ", this.task);
+    },
+  },
 };
 </script>
 
