@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Header />
+    <Form/>
     <ul>
       <li v-for="item in ToDoItems" v-bind:key="item.id">
         <Item v-bind:label="item.label" v-bind:done="item.done" v-bind:id="item.id" />
@@ -14,6 +15,7 @@
 import Header from "./components/Header.vue";
 import Footer from "./components/Footer.vue";
 import Item from "./components/Item.vue";
+import Form from "./components/Form.vue";
 
 export default {
   name: "App",
@@ -21,6 +23,7 @@ export default {
     Header,
     Footer,
     Item,
+    Form,
   },
   data() {
     return {
