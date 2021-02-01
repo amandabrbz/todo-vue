@@ -4,7 +4,7 @@ avaliação de vue para a disciplina de fundamentos de frameworks com o prof Rui
 
 ## Deploy
 
-https://lets-todo-this.netlify.app
+https://todolist-vue-amanda.netlify.app
 
 ## Instalação
 
