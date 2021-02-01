@@ -1,24 +1,31 @@
-# todo-vue
+# todo list in vue
 
-## Project setup
-```
-npm install
-```
+avaliação de vue para a disciplina de fundamentos de frameworks com o prof Rui.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Deploy
 
-### Compiles and minifies for production
-```
-npm run build
+https://lets-todo-this.netlify.app
+
+## Instalação
+
+```git
+git clone git@github.com:amandabrbz/todo-vue.git
 ```
 
-### Lints and fixes files
-```
-npm run lint
+```bash
+cd todo-vue
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+```js
+npm i //install things
+npm run serve //start serve
+npm run build //for build
+```
+
+### Comentários
+
+Oi prof, acho que levo o mesmo ponto aqui de react, que não soube muito passar as coisas de um lado para o outro, como por exemplo as props da List, fiquei meio confusa, começou a dar erros e não consegui arrumar e preferi deixar na "versão estável".
+
+Usei mesma tática também para gerar IDs e um layout diferente. 
+
+Acho que dos três frameworks que a gente viu, vue é menos preferido kkkk
